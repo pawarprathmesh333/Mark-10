@@ -8,17 +8,23 @@
 
     checkButton.addEventListener("click",function () {
          errorMessage.style.display = "none";
-        if(Number(billAmount.value) > 0){
-            if(Number(cashGiven.value) >= Number(billAmount.value)){
-                var amountToReturn = Number(cashGiven.value) - Number(billAmount.value);
-                calculateChange(amountToReturn);
-            }
-            else{
-                showMessage("Cash given should at least equal to Bill Amount");
-            }
+        if(billAmount.value==='' && billAmount.value==='')
+        {
+            showMessage("Enter both values.");
         }
         else{
-            showMessage("Bill Amount should be greater than 0.");
+            if(Number(billAmount.value) > 0){
+                if(Number(cashGiven.value) >= Number(billAmount.value)){
+                    var amountToReturn = Number(cashGiven.value) - Number(billAmount.value);
+                    calculateChange(amountToReturn);
+                }
+                else{
+                    showMessage("Cash given should at least equal to Bill Amount");
+                }
+            }
+            else{
+                showMessage("Bill Amount should be greater than 0.");
+            }
         }
     });
 
